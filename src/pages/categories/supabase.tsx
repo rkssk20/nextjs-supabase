@@ -8,18 +8,18 @@ import ContainerLayout from '@/components/provider/ContainerLayout'
 import Post from '@/components/post/Post'
 import Side from '@/components/side/Side'
 
-const Serverless = () => {
+const Supabase = () => {
   const { data, isFetching, hasNextPage, fetchNextPage } = useCategoriesArticles(1)
   const setRef = useObserver({ hasNextPage, fetchNextPage })
 
   return (
     <ContainerLayout
       type='article'
-      title='フロント'
+      title='Supabase'
       description=''
       image=''
     >
-      <Header text='サーバーレス' url='serverless' />
+      <Header text='Supabase' url='supabase' />
 
       {/* 投稿一覧 */}
       {data &&
@@ -39,9 +39,9 @@ const Serverless = () => {
   )
 }
 
-export default Serverless
+export default Supabase
 
-Serverless.getLayout = function getLayout (page: ReactElement) {
+Supabase.getLayout = function getLayout (page: ReactElement) {
   return (
     <PageLayout>
       { page }

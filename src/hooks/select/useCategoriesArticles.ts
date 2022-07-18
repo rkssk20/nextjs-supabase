@@ -4,8 +4,8 @@ import type { ArticleType } from '@/types/types'
 import { notificateState } from '@/lib/recoil'
 import { supabase } from '@/lib/supabaseClient'
 
-export const FetchData = async (pageParam: string | undefined, category: 0 | 1) => {
-  const view = category === 0 ? 'front_articles' : 'serverless_articles'
+export const FetchData = async (pageParam: string | undefined, category: 0 | 1 | 2 | 3) => {
+  const view = (category === 0) ? 'nextjs_articles' : (category === 1) ? 'supabase_articles' : (category === 2) ? 'hasura_articles' : 'firebase_articles'
 
   const { data, error } = pageParam
     ? // 初回読み込み
@@ -31,7 +31,7 @@ export const FetchData = async (pageParam: string | undefined, category: 0 | 1) 
   return data
 }
 
-const useCategoriesArticles = (category: 0 | 1) => {
+const useCategoriesArticles = (category: 0 | 1 | 2 | 3) => {
   const setNotificate = useSetRecoilState(notificateState)
 
   const { data, isFetching, hasNextPage, fetchNextPage } = useInfiniteQuery(

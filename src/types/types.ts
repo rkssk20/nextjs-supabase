@@ -3,8 +3,8 @@ import type { definitions } from '@/types/supabase'
 
 // カテゴリ
 export type CategoriesProps = {
-  text: 'フロント' | 'サーバーレス'
-  url: 'front' | 'serverless'
+  text: 'Next.js' | 'Supabase' | 'Hasura' | 'Firebase'
+  url: 'nextjs' | 'supabase' | 'hasura' | 'firebase'
 }
 
 // 記事一つ
