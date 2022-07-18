@@ -8,18 +8,18 @@ import ContainerLayout from '@/components/provider/ContainerLayout'
 import Post from '@/components/post/Post'
 import Side from '@/components/side/Side'
 
-const Front = () => {
-  const { data, isFetching, hasNextPage, fetchNextPage } = useCategoriesArticles(0)
+const Hasura = () => {
+  const { data, isFetching, hasNextPage, fetchNextPage } = useCategoriesArticles(2)
   const setRef = useObserver({ hasNextPage, fetchNextPage })
 
   return (
     <ContainerLayout
       type='article'
-      title='フロント'
+      title='Hasura'
       description=''
       image=''
     >
-      <Header text='フロント' url='front' />
+      <Header text='Hasura' url='hasura' />
 
       {/* 投稿一覧 */}
       {data &&
@@ -39,9 +39,9 @@ const Front = () => {
   )
 }
 
-export default Front
+export default Hasura
 
-Front.getLayout = function getLayout(page: ReactElement) {
+Hasura.getLayout = function getLayout(page: ReactElement) {
   return (
     <PageLayout>
       {page}
