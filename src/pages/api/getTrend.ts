@@ -37,9 +37,9 @@ const getTrend = async (req: NextApiRequest, res: NextApiResponse) => {
       }],
       limit: 5
     })
-
+    
     res.status(200).json({
-      response
+      response: response.rows
     })
   } catch {
     res.status(400).json({
