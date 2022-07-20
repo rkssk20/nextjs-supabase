@@ -49,7 +49,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       props: {
         item: {
           ...data,
-          details: remark,
+          details: remark
         },
         path: id,
       },
@@ -85,7 +85,7 @@ const Article = ({ item, path }: ArticleProps) => {
       type='article'
       title={item.title}
       description={item.details.replace(/\_|\*|\\|\`|\#|\+|\-|\!|\{|\}|\[|\]/g, '').slice(0, 100)}
-      image={item.image ? (process.env.NEXT_PUBLIC_SUPABASE_URL + '/storage/v1/object/public/' + item.image) : 'nextjssupabase'}
+      image={item.image ? (process.env.NEXT_PUBLIC_SUPABASE_URL + '/storage/v1/object/public/' + item.image) : ''}
     >
       {/* 画像 */}
       {item.image ? <ArticleImage image={item.image} /> : <NoArtcileImage title={item.title} />}
