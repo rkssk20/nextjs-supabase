@@ -37,28 +37,6 @@ export type DialogProps = {
   handleClose: (e?: MouseEvent) => void
 }
 
-// 記事一つ
-// export type ArticleType = {
-//   id: string;
-//   title: string;
-//   details: string;
-//   image?: string | undefined;
-//   like_count: number;
-//   comment_count: number;
-//   created_at: string;
-//   categories: {
-//     category: number
-//   }[]
-//   profiles: {
-//     id: string
-//     usernmae: string
-//     avatar: string | null
-//   }
-//   likes: {
-//     id: number | undefined
-//   }[]
-// }
-
 // プロフィールの詳細api
 export type ProfileDetailsType = {
   follow: number
