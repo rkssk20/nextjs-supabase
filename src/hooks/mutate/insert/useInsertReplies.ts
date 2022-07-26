@@ -77,7 +77,6 @@ const useInsertReplies = (path: string, comment_id: number) => {
         queryClient.setQueryData(['replies', comment_id], {
           pageParams: replies_existing.pageParams,
           pages: [
-            ...replies_existing.pages,
             [
               {
                 ...data,
@@ -90,6 +89,7 @@ const useInsertReplies = (path: string, comment_id: number) => {
                 },
               },
             ],
+            ...replies_existing.pages
           ],
         })
       }

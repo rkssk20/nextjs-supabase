@@ -4,7 +4,6 @@ import NextLink from 'next/link'
 import useTrend from '@/hooks/select/useTrend'
 
 import styles from '@/styles/components/side/side.module.scss'
-import List from '@mui/material/List'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemText from '@mui/material/ListItemText'
 import TrendingUpIcon from '@mui/icons-material/TrendingUp'
@@ -20,11 +19,11 @@ const Side = () => {
 
   return (
     <div className={styles.field}>
-      <List className={styles.list} classes={{ root: styles.list_root }}>
-        <li className={styles.header}>
+      <div className={styles.list}>
+        <div className={styles.header}>
           <TrendingUpIcon />
           <Typography className={styles.title}>トレンド</Typography>
-        </li>
+        </div>
 
         { data.map((item) => (
           <ListItemButton
@@ -37,16 +36,24 @@ const Side = () => {
               <div className={styles.image_field}>
                 <Image
                   src={item.image ? (process.env.NEXT_PUBLIC_SUPABASE_URL + '/storage/v1/object/public/' + item.image) : ''}
-                  alt='記事のトップ画像'
                   quality={70}
+                  layout='fixed'
                   width={80}
                   height={80}
+                  alt='記事のトップ画像'
                   objectFit='cover'
                 />
               </div>
             ) : (
               <div className={styles.noimage}>
-                <Image src='/favicon.png' quality={80} width={32} height={32} />
+                <Image
+                  src='/favicon.png'
+                  layout='fixed'
+                  quality={80}
+                  width={32}
+                  height={32}
+                  alt='Next.js × Supabaseのトップ画像'
+                />
               </div>
             )}
 
@@ -69,7 +76,7 @@ const Side = () => {
             さらに表示
           </Button>
         </NextLink>
-      </List>
+      </div>
 
       {/* 最下部 */}
       <div className={styles.list_under}>

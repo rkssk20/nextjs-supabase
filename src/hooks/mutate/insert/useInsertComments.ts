@@ -45,7 +45,6 @@ const useInsertComments = (path: string) => {
         queryClient.setQueryData(['comments', path], {
           pageParams: existing.pageParams,
           pages: [
-            ...existing.pages,
             [
               {
                 ...data,
@@ -58,6 +57,7 @@ const useInsertComments = (path: string) => {
                 },
               },
             ],
+            ...existing.pages
           ],
         })
       }

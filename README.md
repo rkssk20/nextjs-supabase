@@ -1,20 +1,22 @@
 ## Next.js × Supabase
 
-[Next.js × Supabase](https://nextjs-supabase.tk)
+[https://nextjs-supabase.tk](https://nextjs-supabase.tk)
 
 Next.js と Supabase を使用した技術ブログ風のポートフォリオです。ログイン・投稿・いいね・コメントなどをお試しください
-
 [Hasura 版](https://nextjs-hasura.tk)と[Firebase 版](https://nextjs-firebase)もあります
 
 <br>
 
 ## 技術選定
 
+詳細は[Next.js × Supabase の技術選定](https://nextjs-supabase/article/NyAwXWU3ZIpjT8AK9MER)
+
 ### フロント
 
 - Next.js
 - Typescript
 - Recoil
+- React Query
 - Mui (旧 Material UI)
 - SCSS
 
@@ -41,7 +43,7 @@ Next.js と Supabase を使用した技術ブログ風のポートフォリオ�
 - 記事・コメント・返信へのいいね
 - アカウント作成、削除、プロフィール変更
 - ユーザーのフォロー
-- 記事の画像・アバター画像のアップロード
+- 記事やアバター画像のアップロード
 
 など
 

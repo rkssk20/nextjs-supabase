@@ -6,7 +6,7 @@ import { supabase } from '@/lib/supabaseClient'
 
 const FetchData = async (pageParam: string | undefined) => {
   const { data, error } = pageParam
-    ? // 初回読み込み
+    ? // 追加読み込み
       await supabase
         .from<ArticleType>('person_articles')
         .select('*')
@@ -15,7 +15,7 @@ const FetchData = async (pageParam: string | undefined) => {
         })
         .lt('created_at', pageParam)
         .limit(10)
-    : // 追加読み込み
+    : // 初回読み込み
       await supabase
         .from<ArticleType>('person_articles')
         .select('*')

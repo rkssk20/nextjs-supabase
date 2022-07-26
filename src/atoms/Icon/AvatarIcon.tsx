@@ -18,6 +18,7 @@ const AvatarIcon = ({ src, variant }: Props) => {
             ? styles.avatar_medium
             : styles.avatar_large,
       }}
+      alt='プロフィール画像'
       src={src}
     />
   )
