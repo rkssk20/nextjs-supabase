@@ -1,20 +1,22 @@
 ## Next.js × Supabase
 
-Next.js と Supabase を使用した技術ブログ風のポートフォリオです。
+[https://nextjs-supabase.tk](https://nextjs-supabase.tk)
 
-[Next.js × Supabase](https://nextjs-supabase.tk)
+Next.js と Supabase を使用した技術ブログ風のポートフォリオです。ログイン・投稿・いいね・コメントなどをお試しください
+[Hasura 版](https://nextjs-hasura.tk)と[Firebase 版](https://nextjs-firebase)もあります
 
 <br>
 
 ## 技術選定
 
-詳細は、[今回の技術選定](https://nextjs-supabase.tk)をご覧ください。
+詳細は[Next.js × Supabase の技術選定](https://nextjs-supabase/article/NyAwXWU3ZIpjT8AK9MER)
 
 ### フロント
 
 - Next.js
 - Typescript
 - Recoil
+- React Query
 - Mui (旧 Material UI)
 - SCSS
 
@@ -41,22 +43,32 @@ Next.js と Supabase を使用した技術ブログ風のポートフォリオ�
 - 記事・コメント・返信へのいいね
 - アカウント作成、削除、プロフィール変更
 - ユーザーのフォロー
-- 記事の画像・アバター画像のアップロード
+- 記事やアバター画像のアップロード
 
 など
 
-### 全文検索
-
-- Supabase の API
-
 ### 検索履歴、下書き
 
-- Recoil Persist
+- Recoil (Persist)
 
 ### レスポンシブデザイン
 
-- SCSS と Mui
+- Mui と SCSS
+
+### トレンド一覧
+
+- Google Analytics で PV 数を測定
+- Google Analytics Data API で人気のページを取得
 
 ### Markdown
 
+- エディターは react-simplemde-editor
+- unified で変換して表示
+
 ### 無限スクロール
+
+- Intersection Observer API で ref を監視
+
+### 検索
+
+- iLike で部分一致

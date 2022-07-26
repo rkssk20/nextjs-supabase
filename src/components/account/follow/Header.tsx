@@ -36,15 +36,18 @@ const Header = ({ name, path }: HeaderProps) => {
       color='inherit'
       elevation={0}
     >
-      <ListItem>
+      <div className={ styles.header }>
         <ListItemIcon>
-          <IconButton onClick={() => router.push(`/account/${path}`)}>
+          <IconButton
+            onClick={() => router.push(`/account/${path}`)}
+            aria-label='プロフィールページへ戻る'
+          >
             <ArrowBackIcon />
           </IconButton>
         </ListItemIcon>
 
         <ListItemText primaryTypographyProps={{ variant: 'h5', noWrap: true }} primary={name} />
-      </ListItem>
+      </div>
 
       {/* 選択バー */}
       <Bar tab_list={tab_list} value={router.pathname === '/account/[id]/follow' ? 0 : 1} />

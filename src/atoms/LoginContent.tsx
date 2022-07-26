@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import { useSetRecoilState } from 'recoil'
 import { supabase } from '@/lib/supabaseClient'
 import { notificateState } from '@/lib/recoil'
@@ -9,6 +10,7 @@ import Button from '@mui/material/Button'
 
 const LoginContent = () => {
   const setNotificate = useSetRecoilState(notificateState)
+  const router = useRouter()
 
   const social = [
     {
@@ -24,6 +26,26 @@ const LoginContent = () => {
       src: 'google.svg',
     },
   ]
+
+  const handleEazy = async() => {
+    try {
+      const { error } = await supabase.auth.signIn({
+        email: process.env.NEXT_PUBLIC_EAZY_LOGIN_EMAIL,
+        password: process.env.NEXT_PUBLIC_EAZY_LOGIN_PASSWORD
+      })
+
+      if(error) throw error
+
+      router.push('/')
+
+    } catch (e) {
+      console.log(e)
+      setNotificate({
+        open: true,
+        message: '認証でエラーが発生しました。',
+      })
+    }
+  }
 
   const handleAuth = async (provider: string) => {
     try {
@@ -54,6 +76,7 @@ const LoginContent = () => {
         classes={{ root: styles.eazy_root }}
         variant='contained'
         color='info'
+        onClick={ handleEazy }
       >
         簡単ログイン
       </Button>

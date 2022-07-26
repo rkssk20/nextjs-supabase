@@ -25,16 +25,8 @@ const About = () => {
         技術選定
       </Typography>
 
-      <NextLink href='/article/' passHref>
+      <NextLink href='/article/NyAwXWU3ZIpjT8AK9MER' passHref>
         <MuiLink className={styles.link}>Next.js × Supabaseの技術選定</MuiLink>
-      </NextLink>
-
-      <Typography className={styles.title} classes={{ root: styles.title_root }} variant='h3'>
-        機能一覧
-      </Typography>
-
-      <NextLink href='/article/' passHref>
-        <MuiLink className={styles.link}>Next.js × Supabaseで実装した機能</MuiLink>
       </NextLink>
 
       <Typography className={styles.title} classes={{ root: styles.title_root }} variant='h3'>

@@ -34,10 +34,6 @@
   @include utils.mq(md) {
     max-height: calc(100vh - 178px);
   }
-  &.list_root {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
 }
 
 // トレンドのタイトル
@@ -59,8 +55,8 @@
 
 // 画像全体
 .image_field {
-  width: 80px;
-  height: 80px;
+  // width: 80px;
+  // height: 80px;
   border-radius: 5px;
   overflow: hidden;
   position: relative;

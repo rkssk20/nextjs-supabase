@@ -5,15 +5,14 @@ import { notificateState } from '@/lib/recoil'
 import { supabase } from '@/lib/supabaseClient'
 
 const FetchData = async (
-  pageParam: { like_count: number; created_at: string } | undefined,
+  pageParam: string | undefined,
   word: string | string[],
 ) => {
   const { data, error } = pageParam
     ? // 初回読み込み
       await supabase.rpc('handle_articles_search_more', {
         word,
-        lcount: pageParam.like_count,
-        created: pageParam.created_at,
+        created: pageParam,
       })
     : // 追加読み込み
       await supabase.rpc('handle_articles_search', {
@@ -38,13 +37,8 @@ const useArticlesSearch = (word: string | string[]) => {
           message: 'エラーが発生しました。',
         })
       },
-      getNextPageParam: (lastPage) =>
-        lastPage && lastPage.length === 10
-          ? {
-              like_count: lastPage[lastPage.length - 1].like_count,
-              created_at: lastPage[lastPage.length - 1].created_at,
-            }
-          : false,
+      getNextPageParam: (lastPage) => 
+        lastPage && lastPage.length === 10 ? lastPage[lastPage.length - 1].created_at : false
     },
   )
 
