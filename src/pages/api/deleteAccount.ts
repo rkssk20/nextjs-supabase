@@ -9,7 +9,7 @@ const supabaseServer = createClient(
 export default async function deleteAccount(req: NextApiRequest, res: NextApiResponse) {
   const body = JSON.parse(req.body)
   
-  if (body.id && (body.id != 'c6161f81-2879-4fad-a52c-1d19c78c8ff6')) {
+  if (body.id && (body.id != '2767ef52-b04e-42ce-9b5e-22166e9eb39')) {
     const { data: deletedUser, error } = await supabaseServer.auth.api.deleteUser(body.id)
 
     if (error) {

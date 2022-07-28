@@ -17,7 +17,7 @@ const useDeleteAccount = () => {
       const id = supabase.auth.user()?.id
       if(!id) throw 'error'
 
-      if(id === 'c6161f81-2879-4fad-a52c-1d19c78c8ff6') {
+      if(id === '2767ef52-b04e-42ce-9b5e-22166e9eb39') {
         setNotificate({
           open: true,
           message: 'かんたんログインは削除できません'

@@ -31,7 +31,7 @@ const LoginContent = () => {
     try {
       const { error } = await supabase.auth.signIn({
         email: process.env.NEXT_PUBLIC_EAZY_LOGIN_EMAIL,
-        password: process.env.NEXT_PUBLIC_EAZY_LOGIN_PASSWORD
+        password: process.env.NEXT_PUBLIC_EAZY_LOGIN_PASSWORD, 
       })
 
       if(error) throw error
