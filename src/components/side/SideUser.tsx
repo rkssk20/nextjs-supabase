@@ -18,7 +18,7 @@ const SideUser = () => {
       <div className={styles.list}>
         <div className={styles.header}>
           <TrendingUpIcon />
-          <Typography className={styles.title}>ユーザー</Typography>
+          <Typography className={styles.title}>人気ユーザー</Typography>
         </div>
 
         {/* 各アカウント */}
