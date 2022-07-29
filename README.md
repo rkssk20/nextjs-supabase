@@ -72,3 +72,5 @@ Next.js と Supabase を使用した技術ブログ風のポートフォリオ�
 ### 検索
 
 - iLike で部分一致
+
+[image](https://github.com/rkssk20/nextjs-supabase/issues/18#issue-1322600136)
