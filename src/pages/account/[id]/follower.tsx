@@ -63,7 +63,7 @@ const Follower = ({ item, path }: FollowerProps) => {
         ? data.pages.map((page, page_index) =>
             page.map((item, index) => (
               <Account
-                key={item.follower_id}
+                key={item.user_id}
                 id={item.user_id}
                 username={item.username}
                 avatar={item.avatar}
