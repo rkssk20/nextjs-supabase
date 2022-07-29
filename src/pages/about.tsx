@@ -1,7 +1,9 @@
 import { ReactElement } from 'react'
 import NextLink from 'next/link'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { ContainedButton } from '@/atoms/Button'
+import ArticleImage from '@/atoms/Image/ArticleImage'
 import Introduction from '@/atoms/Introduction'
 import PageLayout from '@/components/provider/PageLayout'
 import ContainerLayout from '@/components/provider/ContainerLayout'
@@ -42,6 +44,8 @@ const About = () => {
       <div className={styles.button}>
         <ContainedButton text='かんたんログイン' handle={() => router.push('/login')} />
       </div>
+
+      <ArticleImage image='/others/lighthouse.jpeg' />
     </ContainerLayout>
   )
 }
