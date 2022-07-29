@@ -1,25 +1,18 @@
 import { useQuery } from 'react-query'
 import { useSetRecoilState } from 'recoil'
-import type { ArticleType } from '@/types/types'
+import type { ProfilesSummaryType } from '@/types/types'
 import { notificateState } from '@/lib/recoil'
 import { supabase } from '@/lib/supabaseClient'
 
 const FetchData = async () => {
-  try {
-    const res = await fetch(`/api/getTrend`)
-
-    const gaRes = await res.json()
-    
-    let array: any[] = []
-    
-    gaRes.response.map((item: any) => (
-      array.push(item.dimensionValues[0].value.replace('/article/', ''))
-    ))
-  
+  try {  
     const { data, error } = await supabase
-      .from<ArticleType>('person_articles')
-      .select('*')
-      .in('id', array)
+      .from<ProfilesSummaryType>('profiles')
+      .select('id, username, details, avatar')
+      .order('follower_count', {
+        ascending: false
+      })
+      .limit(5)
   
     if (error) throw error
   
@@ -29,10 +22,10 @@ const FetchData = async () => {
   }
 }
 
-const useTrend = () => {
+const useTrendUser = () => {
   const setNotificate = useSetRecoilState(notificateState)
 
-  const { data, isFetching } = useQuery('trend', () => FetchData(), {
+  const { data } = useQuery('trend_user', () => FetchData(), {
     onError: () => {
       setNotificate({
         open: true,
@@ -41,7 +34,7 @@ const useTrend = () => {
     }
   })
 
-  return { data, isFetching }
+  return data
 }
 
-export default useTrend
+export default useTrendUser

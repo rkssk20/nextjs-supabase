@@ -1,8 +1,17 @@
 import { useQuery } from 'react-query'
 import { useSetRecoilState } from 'recoil'
-import type { ArticleType } from '@/types/types'
+import type { definitions } from '@/types/supabase'
 import { notificateState } from '@/lib/recoil'
 import { supabase } from '@/lib/supabaseClient'
+
+type TrendType = {
+  id: definitions['articles']['id']
+  title: definitions['articles']['title']
+  image: definitions['articles']['id']
+  profiles: {
+    username: definitions['profiles']['username']
+  }
+}
 
 const FetchData = async () => {
   try {
@@ -17,8 +26,8 @@ const FetchData = async () => {
     ))
   
     const { data, error } = await supabase
-      .from<ArticleType>('person_articles')
-      .select('*')
+      .from<TrendType>('articles')
+      .select('id, title, image, profiles!reference_articles_profiles(username)')
       .in('id', array)
   
     if (error) throw error
@@ -29,10 +38,10 @@ const FetchData = async () => {
   }
 }
 
-const useTrend = () => {
+const useSideTrend = () => {
   const setNotificate = useSetRecoilState(notificateState)
 
-  const { data, isFetching } = useQuery('trend', () => FetchData(), {
+  const { data } = useQuery('side_trend', () => FetchData(), {
     onError: () => {
       setNotificate({
         open: true,
@@ -41,7 +50,7 @@ const useTrend = () => {
     }
   })
 
-  return { data, isFetching }
+  return data
 }
 
-export default useTrend
+export default useSideTrend

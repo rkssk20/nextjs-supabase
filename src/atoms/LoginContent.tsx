@@ -38,8 +38,7 @@ const LoginContent = () => {
 
       router.push('/')
 
-    } catch (e) {
-      console.log(e)
+    } catch {
       setNotificate({
         open: true,
         message: '認証でエラーが発生しました。',

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import NextLink from 'next/link'
-import useTrend from '@/hooks/select/useTrend'
+import useSideTrend from '@/hooks/select/useSideTrend'
 
 import styles from '@/styles/components/side/side.module.scss'
 import ListItemButton from '@mui/material/ListItemButton'
@@ -12,7 +12,7 @@ import Button from '@mui/material/Button'
 import MuiLink from '@mui/material/Link'
 
 const Side = () => {
-  const data = useTrend()
+  const data = useSideTrend()
   const router = useRouter()
 
   if (!data || data.length === 0) return null
